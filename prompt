@@ -1,0 +1,94 @@
+
+Create a full-stack football turf booking application with the following detailed features and flows:
+
+---
+
+### 1. User Flow
+
+- Users access the booking app by scanning a QR code at the turf location, which directs them to the online booking platform.
+- Users log in using their phone number and OTP verification (using Twilio or Firebase Authentication).
+- After login, users select the turf location if multiple turfs are managed.
+- Display a real-time availability grid of 30-minute time slots from 8 AM to 11 PM for the selected turf.
+- Available slots are shown in green; unavailable slots are grayed out.
+- Users can instantly reserve one or multiple available time slots.
+- Users can track their complete booking history within the app.
+- Users can cancel bookings only if done at least 1 hour prior to the reserved slot.
+- Each booking automatically generates a unique QR code stored in the booking history for easy sharing and verification.
+- Bookings can be shared among a friend group via SMS or by sharing the booking QR code.
+
+---
+
+### 2. Admin Flow
+
+- Admins receive real-time notifications of new reservations and booking requests.
+- Admin dashboard displays incoming bookings with user details, turf, and time slots.
+- Admins can acknowledge and confirm bookings; confirmation triggers a notification to users.
+- Admins can cancel bookings but must do so at least 30 minutes prior to the reserved slot.
+- Admins can view booking history, cancellations, and no-shows.
+- No-shows by users are recorded and reflected in both user and admin booking histories.
+- User reliability scores are calculated based on booking behavior, cancellations, and no-shows, visible to admins.
+- Admins manage turf details, availability, and booking rules.
+
+---
+
+### 3. Booking History and QR Code Integration
+
+- Booking history for users and admins includes all past bookings, cancellations, and no-shows.
+- Each confirmed booking has an automatically generated QR code for verification and sharing.
+- The same QR code can be shared with friends to enable group participation in the booking.
+
+---
+
+### 4. Payment Flow (Add-on Feature)
+
+- Payment integration is optional and can be enabled by turf owners as an add-on.
+- Initially, no payment processing is required.
+- When enabled, provide a mock payment interface with card and mobile wallet designs.
+- Simulate payment success/failure animations without real transactions.
+- Booking confirmation depends on successful mock payment completion.
+
+---
+
+### 5. Additional Features (Add-ons)
+
+- Dynamic pricing suggestions based on demand and time slots.
+- Weather integration to recommend optimal booking times.
+- Injury prevention tips based on turf type.
+- Team formation builder with shareable diagrams.
+- Loyalty program with virtual coins and rewards.
+
+---
+
+### 6. Technical Stack Recommendations
+
+- **Backend:** Node.js with Express.js for RESTful API development.
+- **Database:** MongoDB with Mongoose for flexible schema management of users, bookings, turfs, and groups.
+- **Authentication:** Phone number login with OTP via Twilio or Firebase Authentication.
+- **Real-time Updates:** Socket.IO for live slot availability and booking notifications.
+- **Frontend:** React (for web) or React Native (for mobile-first experience) with Material-UI or Chakra UI for responsive, accessible design.
+- **Validation:** Use Zod or Joi for robust input validation.
+- **Security:** JWT for authentication tokens and role-based access control for users and admins.
+- **QR Code Generation:** Use libraries like `qrcode` (Node.js) or platform-specific QR code generators.
+- **Deployment:** Cloud platforms such as AWS, Azure, or Google Cloud with CI/CD pipelines.
+- **Testing:** Unit and integration testing with Jest and Supertest for backend; React Testing Library for frontend.
+- **Monitoring & Analytics:** Integrate tools like Sentry for error tracking and Google Analytics for usage insights.
+
+---
+
+### 7. Deliverables
+
+- **Database Schema:** Design schemas for Users, Turfs, Bookings, Booking History, and User Reliability Scores.
+- **API Endpoints Documentation:** Cover login/OTP verification, turf selection, slot availability, booking creation, cancellation rules, admin booking confirmation, booking history retrieval, and QR code generation.
+- **State Management Diagram:** Illustrate user login, turf selection, booking flow, cancellation policies, admin confirmation, and booking history tracking.
+- **Wireframes:** For key screens including:
+  - QR code landing page
+  - Phone number login with OTP
+  - Turf selection and availability grid
+  - Booking confirmation with QR code display
+  - Booking history with cancellation and no-show indicators
+  - Admin dashboard with booking management and user reliability scores
+  - Optional payment mockup (add-on)
+- **Error Handling Strategy:** Define consistent error responses and validation feedback for all user actions.
+- **Security Plan:** Outline authentication, authorization, and data protection measures.
+
+---
